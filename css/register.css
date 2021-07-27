@@ -1,0 +1,12 @@
+.img{
+    height:800px;
+    width:100% ;
+    background-image: url("../image/xps-2L-0vnCnzcU-unsplash\ \(1\).jpg");
+    border:1px solid salmon;
+    background-size: 100% 100%;
+    text-align: left;
+    
+}
+p::first-letter{
+    color: brown;
+}
