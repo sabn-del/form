@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registeration form</title>
-    <link rel="stylesheet" href="./css/register.css">
+    <link rel="stylesheet" href="public/css/register.css">
+    
 </head>
 <body>
     
@@ -13,16 +14,21 @@
           <h1>Registeration Form</h1>
           <div class="registeration">
          
-         <form action="#" method="POST">
-           
+         <form action="#" name="myform" onsubmit="Validatemyform()">
+          
              <p>User Id :</p>
              <input type="text" name="userid" placeholder="User Id">
+             <label for="" id="uid">..</label>
              <p>Password :</p>
-             <input type="password" name="password" placeholder="Password">
+             <input type="password" name="pswd" placeholder="Password">
+             <label for="" id="pass"></label>
              <p>Name :</p>
-             <input type="text"  name="name" placeholder="Name">
-             <p>Address :</p>
-             <input type="text" name="address" placeholder="Address"><br><br>
+             <input type="text"  name="name1" placeholder="Name">
+             <label for="" id="name2"></label>
+             <p>Address :</p>     
+             <label for="" id="addr">...</label> 
+             <input type="text" name="addess" placeholder="Address"><br><br>
+            
              <label for="country">Country :</label>       
              <select name="country" id="country" >
                <option value="India" >India</option>
@@ -31,27 +37,77 @@
                <option value="malesia" >Malesia</option> 
                <br><br>
              </select>  
-             <input type ="text" name="zipcode" placeholder="Zip Code">
+             <input type ="text" name="zipc" placeholder="Zip Code">
+             <label for="" id="zipc"></label>
              <p>Email :</p>
-             <input type="email" name= "email" placeholder="Email"><br><br> 
+             <input type="email" name= "email1" placeholder="Email"><br><br> 
              <label for="gender">Gender :</label>
             
-             <input type="radio" id = "male" name="male" value="Male">
+             <input type="radio" id = "male" name="gender" value="Male">
              <label for="male">Male</label>
-             <input type ="radio" id ="male" name = "male" value ="Female">
-             <label for ="male">Female</label><br><br>
+             <input type ="radio" id ="male" name = "gender" value ="Female">
+             <label for ="male">Female</label><br>
+             <label for="" id="gender1"></label>
             
               <label for ="language">Language :</label>
               <input type="checkbox" name="language" value="english">
               <label for="english">English</label>
               <input type ="checkbox" name="language" value="nonenglish">
               <label for ="nonenglish" >Non English</label><br><br>
-              <button type="submit" form="register" value="Submit">Submit</button>
+              <input type="submit" value="Submit">
          </form>
         
          
         </div>
         </div>
+        <script>
+          function Validatemyform(){
+            var x = document.forms["myform"]["userid"].value;
+            
+            if(x==""){
+              //alert("userid must filled out");
+              //return false;
+              document.getElementById("uid").style.color.innerHTML="red";
+            }
+            var y = document.forms["myform"]["pswd"].value;
+              if(y==""){
+              //alert("password must be fiiled out");
+              document.getElementById("pass").innerHTML="password must be fiiled out";
+            }
+            var name=document.forms["myform"]["name1"].value;
+            if(name==""){
+              //alert("name must be filled out");
+              document.getElementById("name2").innerHTML="name must be filled out";
+            }
+            var addrs= document.forms["myform"]["addess"].value;
+            if(addrs==""){
+            document.getElementById("addr"). innerHTML="Address must be filled out";
+            //alert("address is required");
+          }
+            var zi= document.forms["myform"]["zipc"].value;
+            if(zi==""){
+              //alert("zipcode must be filled out");
+              document.getElementById("zipc").innerHTML="zipcode must be filled out";
+            }
+            else (isNan(zi))
+            {
+              //alert("enter the valid zipcode");
+              document.getElementById("zipc").innerHTML="enter the valid zipcode";
+            }         
+          
+             var gend = document.forms["myform"]["gender"].value; 
+             if(gend==""){
+               //alert("select gender");
+               document.getElementById("gender1").innerHTML="select the gender";
+             }
+             
+             
+          }
+           
+          
+         
+          
+          </script>
     
 </body>
 </html>
